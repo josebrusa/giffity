@@ -1,0 +1,13 @@
+.conatainer-Gif {
+    color: #eee;
+    text-decoration: none;
+}
+
+.Gif {
+    border: 1px solid #eee;
+    border-radius: 50px;
+    display: flex;
+    align-items: flex-start;
+    margin: 16px;
+    width: 100%;
+}
