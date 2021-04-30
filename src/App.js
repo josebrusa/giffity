@@ -1,25 +1,39 @@
 import React from 'react';
-import './App.css';
-import ListOfGifs from './components/ListOfGifs'
-import { Link, Route } from 'wouter'
+import './App.css'
+import Home from './pages/Home'
+import SearchResults from './pages/SearchResults'
+import Detail from './pages/Detail'
+import Pepito from './context/StaticContext'
+import {GifsContextProvider} from './context/GifsContext'
+import { Link, Route } from "wouter"
+import logo from './isologo.svg'
 
-function App() {
-
+export default function App() {
   return (
-    <div className="App">
-      <section className="App-content">
-        <h1>App</h1>
-
-          <Link to='/gif/dragonball'>Dragon Ball</Link>
-          <Link to='/gif/lossimpsons'>Los Simpsons</Link>
-          <Link to='/gif/powerrangers'>Power Rangers</Link>
-
-        <Route component={ListOfGifs} path='/gif/:keyword' />
-        {/* <ListOfGifs keyword='panda' /> */}
-        {/* <button onClick={() => setGifs(DIFERENT_GIFS)}>Cambiar gif</button> */}
-      </section>
-    </div>
-  );
+  <Pepito.Provider value={{name: 'cocho',
+      suscribeteAlCanal: true}}>
+          <div className="App">
+            <section className="App-content">
+              <Link to="/">
+                <figure className="App-logo">
+                  <img alt='giffity isologo' src={logo} />
+                </figure>
+              </Link>
+              <GifsContextProvider>
+                <Route
+                  component={Home}
+                  path="/"
+                />
+                <Route
+                  component={SearchResults}
+                  path="/search/:keyword"  />
+                <Route
+                  component={Detail}
+                  path="/gif/:id"
+                />
+              </GifsContextProvider>
+            </section>
+          </div>
+    </Pepito.Provider>
+  )
 }
-
-export default App;
