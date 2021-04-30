@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import { Link, useLocation } from 'wouter'
-import { useGifs } from '../../hooks/useGifs'
+import React, { useState } from "react"
+import { useLocation } from "wouter"
 import ListOfGifs from '../../components/ListOfGifs/ListOfGifs'
+import Category from '../../components/Category'
+import {useGifs} from '../../hooks/useGifs'
 
 const POPULARES_GIFS = ['Dragon Ball', 'Powers Rangers', 'Los Simpsons', 'Los Jovenes Titanes']
 
@@ -25,18 +26,16 @@ export default function Home() {
                 <button>Buscar</button>
                 <input placeholder='Search your Gifs' onChange={handleChange} type='text' value={keyword} />
             </form>
-            <h3>Ultima Busqueda</h3>
-            <ListOfGifs gifs={gifs} />
-            <h3>Los Gif mas populares</h3>
-            <ul>
-                {POPULARES_GIFS.map((popularGif) =>(
-                    <li key={popularGif}>
-                        <Link to={`/search/${popularGif}`}>
-                            Gifs de {popularGif}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+            <div className="App-main">
+                <div className="App-results">
+                    <h3 className="App-title">Última búsqueda</h3>
+                    <ListOfGifs gifs={gifs} />
+                    </div>
+                    <div className="App-category">
+                    <Category name="Categorias populares" options={POPULARES_GIFS} />
+                    <Category name="Mascotas" options={['Perros', 'Gatos', 'Hamster']} />
+                </div>
+            </div>
         </>
     )
 }
