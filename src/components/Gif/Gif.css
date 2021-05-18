@@ -1,6 +1,7 @@
 .Gif {
     --gifShadow-size: var(--gridList-gap, 6px);
     margin-bottom: .5em;
+    border-radius: 10px;
 }
 
 .Gif-link {
@@ -24,6 +25,7 @@
     width: 100%;
     object-fit: contain;
     vertical-align: top;
+    border-radius: 10px;
 }
 
 i {
