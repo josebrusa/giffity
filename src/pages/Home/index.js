@@ -21,6 +21,7 @@ export default function Home() {
         <>
         <Helmet>
             <title>Home | Giffity</title>
+            <link rel="canonical" href="https://giffity.vercel.app/" />
         </Helmet>
         <header className="o-header">
             <SearchForm onSubmit={handleSubmitSearchForm} />
