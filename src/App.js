@@ -20,20 +20,14 @@ export default function App() {
                 </figure>
               </Link>
               <GifsContextProvider>
-                <Route
-                  component={Home}
-                  path="/"
-                />
-                <Route
-                  component={SearchResults}
-                  path="/search/:keyword"  />
-                <Route
-                  component={Detail}
-                  path="/gif/:id"
-                />
+                <Route component={Home} path="/" />
+                <Route component={SearchResults} path="/search/:keyword" />
+                <Route component={Detail} path="/gif/:id" />
+                <Route component={() => <h1>Ups! Error 404 / Preguntale a Cocho que paso 😁</h1>} path='/404' />
               </GifsContextProvider>
             </section>
           </div>
     </Pepito.Provider>
   )
 }
+
