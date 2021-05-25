@@ -64,9 +64,8 @@ form {
 }
 
 input[type=text] {
-  border-radius: 0 10px 10px 0;
   font-size: 16px;
-  border: none;
+  border-right: 2px solid #ccc;
   padding: 4px 16px;
 }
 
