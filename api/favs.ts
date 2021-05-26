@@ -1,4 +1,3 @@
-
 export const favs: any = {
-    'midudev': []
-  }
+  'midudev': []
+}

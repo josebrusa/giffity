@@ -6,11 +6,11 @@ import * as flags from 'https://deno.land/std/flags/mod.ts'
 import { userMiddleware } from "./userMiddleware"
 import { authMiddleware } from "./authMiddleware"
 import {
-    getFavs,
-    deleteFav,
-    postFav,
-    postLogin,
-    postRegister
+  getFavs,
+  deleteFav,
+  postFav,
+  postLogin,
+  postRegister
 } from "./routes"
 
 const {args} = Deno
@@ -25,14 +25,14 @@ const router = new Router()
 app.use(userMiddleware, oakCors())
 
 router
-    .get('/favs', authMiddleware, getFavs)
-    .delete("/favs/:id", authMiddleware, deleteFav)
-    .post("/favs/:id", authMiddleware, postFav)
-    .post("/login", postLogin)
-    .post("/register", postRegister)
+  .get('/favs', authMiddleware, getFavs)
+  .delete("/favs/:id", authMiddleware, deleteFav)
+  .post("/favs/:id", authMiddleware, postFav)
+  .post("/login", postLogin)
+  .post("/register", postRegister)
 
 app.addEventListener('error', evt => {
-    console.log(evt.error)
+  console.log(evt.error)
 })
 
 app.use(router.routes())
